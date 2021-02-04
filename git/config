@@ -1,0 +1,47 @@
+[user]
+name  = Hideyuki Utsunomiya
+email = hidechae@gmail.com
+
+[color]
+ui          = auto
+status      = auto
+diff        = auto
+branch      = auto
+interactive = auto
+grep        = auto
+
+[push]
+default = tracking
+
+[core]
+editor       = vim
+pager        = delta
+excludesfile = /Users/hideyuki_utsunomiya/.gitignore_global
+
+[alias]
+br    = branch
+ci    = commit
+co    = checkout
+st    = status
+clone = clone --recursive
+cof   = !git branch    | fzf | xargs git checkout
+cofa  = !git branch -a | fzf | xargs git checkout
+
+[delta]
+plus-color   = "#012800"
+minus-color  = "#340001"
+syntax-theme = Monokai Extended
+side-by-side = true
+
+line-numbers-left-format  = ""
+line-numbers-right-format = " │ "
+line-numbers-left-style   = white
+line-numbers-right-style  = white
+
+file-style                   = bold ul
+file-decoration-style        = omit
+hunk-header-style            = blue
+hunk-header-decoration-style = omit
+
+[interactive]
+diffFilter = delta --color-only
