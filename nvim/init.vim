@@ -1,5 +1,6 @@
 " settings
 set number
+set cursorcolumn
 
 
 " file types
@@ -33,3 +34,7 @@ nnoremap <silent> <C-g> :Rg
 
 " markdown
 nnoremap <silent> md :PreviewMarkdown<CR>
+
+
+" no hilight
+map <silent> <ESC><ESC> :noh<CR>

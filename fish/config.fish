@@ -39,3 +39,8 @@ function gpush
   git push origin (git branch | grep '*' | cut -d ' ' -f 2)
 end
 
+# ripgrep
+alias ag rg
+function rg
+  /usr/local/bin/rg -p "$argv" | less -R
+end
