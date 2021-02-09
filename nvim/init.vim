@@ -1,6 +1,7 @@
 " settings
 set number
 set cursorcolumn
+set scrolloff=5
 
 
 " file types
