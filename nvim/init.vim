@@ -13,10 +13,15 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'skanehira/preview-markdown.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'mattn/vim-goimports'
 Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 colorscheme wombat256
+
+" goimports
+" Plugin doesn't work, so set BufWritePre event manually
+autocmd BufWritePre *.go call goimports#AutoRun()
 
 
 " fzf
