@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
 
 " style
 Plug 'bronson/vim-trailing-whitespace'
@@ -47,6 +48,10 @@ nnoremap <silent> fgs :GFiles?<CR>
 nnoremap <silent> fm  :History<CR>
 nnoremap <silent> fc  :Colors<CR>
 nnoremap <silent> <C-g> :Rg
+
+
+" nerdtree
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 
 " markdown
