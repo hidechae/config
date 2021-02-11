@@ -51,7 +51,8 @@ nnoremap <silent> <C-g> :Rg
 
 
 " nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n><C-n> :NERDTreeToggle<CR>
+nnoremap <C-n><C-f> :NERDTreeFind<CR>
 
 
 " markdown

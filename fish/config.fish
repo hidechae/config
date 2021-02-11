@@ -4,13 +4,16 @@ export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin:$HOME/bin"
 
 # override cmd
-alias vim  'nvim'
-alias ls   'exa'
-alias l    'exa -hla --git'
-alias tree 'exa -T --git-ignore'
-alias cat  'bat'
-alias tmux 'TERM=xterm-256color /usr/local/bin/tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias vim   'nvim'
+alias ls    'exa'
+alias l     'exa -hla --git'
+alias tree  'exa -T --git-ignore'
+alias cat   'bat'
+alias tmux  'TERM=xterm-256color /usr/local/bin/tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias mysql 'mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
+alias rm    'rm -i'
+alias cp    'cp -i'
+alias mv    'mv -i'
 
 # specific settings
 alias jgo  'cd ~/go/src'
@@ -35,7 +38,7 @@ function gpull
   git pull --rebase origin (git branch | grep '*' | cut -d ' ' -f 2)
 end
 
-function gpush 
+function gpush
   git push origin (git branch | grep '*' | cut -d ' ' -f 2)
 end
 
@@ -43,4 +46,15 @@ end
 alias ag rg
 function rg
   /usr/local/bin/rg -p "$argv" | less -R
+end
+
+# show 255 colors
+function color
+  for i in (seq 255)
+    if test (math $i % 16) -eq 15
+      printf "\x1b[38;5;%03dm%03d\n" $i $i
+    else
+      printf "\x1b[38;5;%03dm%03d  " $i $i
+    end
+  end
 end
