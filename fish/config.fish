@@ -58,3 +58,30 @@ function color
     end
   end
 end
+
+# nvm
+# https://github.com/nvm-sh/nvm#fish)
+# customise to use brew installed nvm.
+# only using nvm_find_nvmrc from nvm.sh
+function nvm_find_nvmrc
+  bass source /usr/local/opt/nvm/nvm.sh --no-use ';' nvm_find_nvmrc
+end
+
+function load_nvm --on-variable="PWD"
+  set -l nvmrc_path (nvm_find_nvmrc)
+
+  if test -n "$nvmrc_path"
+    set -l node_version (nvm current)
+    set -l nvmrc_node_version (cat $nvmrc_path)
+
+    if test $nvmrc_node_version != $node_version
+      if test (nvm use  $nvmrc_node_version)
+        nvm use $nvmrc_node_version
+      else
+        nvm install $nvmrc_node_version
+      end
+    end
+  end
+end
+
+load_nvm
