@@ -7,10 +7,16 @@ Configure files using [XDG Base Directory](https://specifications.freedesktop.or
 brew install fish exa bat nvim  ripgrep
 
 # git diff
-brew install git-delta 
+brew install git-delta
 
 # mysql color
 brew install grc
+
+# Fisher (https://github.com/jorgebucaran/fisher)
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+# nvm (https://github.com/jorgebucaran/nvm.fish)
+fisher install jorgebucaran/fish-nvm
 ```
 
 ## Install vim-plug
@@ -24,7 +30,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ## fish shell
 Change default shell to fish shell
 ```
-$ sudo vi /etc/shells 
+$ sudo vi /etc/shells
 # -> Add line `/usr/local/bin/fish`
 
 $ chsh -s /usr/local/bin/fish
