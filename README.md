@@ -12,6 +12,9 @@ brew install git-delta
 # mysql color
 brew install grc
 
+# direnv
+brew install direnv
+
 # Fisher (https://github.com/jorgebucaran/fisher)
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 

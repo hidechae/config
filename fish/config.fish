@@ -85,3 +85,7 @@ function load_nvm --on-variable="PWD"
 end
 
 load_nvm
+
+# direnv
+set -x EDITOR vim
+direnv hook fish | source
