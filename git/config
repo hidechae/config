@@ -16,7 +16,7 @@ default = tracking
 [core]
 editor       = vim
 pager        = delta
-excludesfile = /Users/hideyuki_utsunomiya/.gitignore_global
+excludesfile = /Users/hideyukiutsunomiya/.config/git/ignore
 
 [alias]
 br    = branch
@@ -33,8 +33,8 @@ minus-color  = "#340001"
 syntax-theme = Monokai Extended
 side-by-side = true
 
-line-numbers-left-format  = ""
-line-numbers-right-format = " │ "
+#line-numbers-left-format  = ""
+#line-numbers-right-format = " │ "
 line-numbers-left-style   = white
 line-numbers-right-style  = white
 
