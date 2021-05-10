@@ -14,7 +14,7 @@ alias mysql 'mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
 alias rm    'rm -i'
 alias cp    'cp -i'
 alias mv    'mv -i'
-alais vim   'vim -O' # holizontal split (-o vertical, -p tab)
+alias vim   'vim -O' # holizontal split (-o vertical, -p tab)
 
 # specific settings
 alias jgo      'cd ~/go/src'
