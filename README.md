@@ -21,6 +21,9 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 # nvm (https://github.com/jorgebucaran/nvm.fish)
 fisher install jorgebucaran/fish-nvm
 fisher install edc/bass
+
+# GNU
+brew install coreutils
 ```
 
 ## Install vim-plug

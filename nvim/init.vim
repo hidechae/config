@@ -1,8 +1,12 @@
 " settings
 set number
-"set cursorcolumn
+" set cursorcolumn
 set scrolloff=5
 
+" tab
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " file types
 autocmd BufRead,BufNewFile *.fish set filetype=sh
@@ -17,7 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 
 " style
-Plug 'bronson/vim-trailing-whitespace'
+"Plug 'bronson/vim-trailing-whitespace'
 Plug 'flazz/vim-colorschemes'
 Plug 'skanehira/preview-markdown.vim'
 
@@ -34,7 +38,7 @@ colorscheme wombat256
 autocmd BufWritePre *.go call goimports#AutoRun()
 
 " Fix trailing space on save
-autocmd BufWritePre <buffer> FixWhitespace
+"autocmd BufWritePre <buffer> FixWhitespace
 
 
 " fzf

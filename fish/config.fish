@@ -14,12 +14,17 @@ alias mysql 'mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
 alias rm    'rm -i'
 alias cp    'cp -i'
 alias mv    'mv -i'
+alais vim   'vim -O' # holizontal split (-o vertical, -p tab)
 
 # specific settings
-alias jgo  'cd ~/go/src'
-alias jvs  'cd ~/go/src/bitbucket.org/v-standard'
-alias jvsr 'cd ~/Project/vanish'
-alias vsdb 'mysql -uroot -h127.0.0.1 -P13306 oxford'
+alias jgo      'cd ~/go/src'
+alias jvs      'cd ~/go/src/bitbucket.org/v-standard'
+alias jvsr     'cd ~/Project/vanish'
+alias vsdb     'mysql -uroot -h127.0.0.1 -P13306 oxford'
+alias vsdbmall 'mysql -uroot -h127.0.0.1 -P23306 oxford'
+
+# GNU
+alias date '/usr/local/bin/gdate'
 
 # history with fzf
 function fish_user_key_bindings
