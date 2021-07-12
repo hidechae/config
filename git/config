@@ -17,6 +17,8 @@ default = tracking
 editor       = vim
 pager        = delta
 excludesfile = /Users/hideyukiutsunomiya/.config/git/ignore
+	whitespace = cr-at-eol
+	quotepath = false
 
 [alias]
 br    = branch
