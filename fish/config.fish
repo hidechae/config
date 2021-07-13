@@ -3,8 +3,11 @@ export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin:$HOME/bin"
 
+# nodenv
+status --is-interactive; and source (nodenv init -|psub)
+
 # override cmd
-alias vim   'nvim'
+alias vim   'nvim -O' # holizontal split (-o vertical, -p tab)
 alias ls    'exa'
 alias l     'exa -hla --git'
 alias tree  'exa -T --git-ignore'
@@ -14,7 +17,6 @@ alias mysql 'mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
 alias rm    'rm -i'
 alias cp    'cp -i'
 alias mv    'mv -i'
-alias vim   'vim -O' # holizontal split (-o vertical, -p tab)
 
 # specific settings
 alias jgo      'cd ~/go/src'

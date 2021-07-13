@@ -15,6 +15,9 @@ brew install grc
 # direnv
 brew install direnv
 
+# nodenv
+brew install nodenv
+
 # Fisher (https://github.com/jorgebucaran/fisher)
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
