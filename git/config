@@ -17,17 +17,19 @@ default = tracking
 editor       = vim
 pager        = delta
 excludesfile = /Users/hideyukiutsunomiya/.config/git/ignore
-	whitespace = cr-at-eol
-	quotepath = false
+whitespace   = cr-at-eol
+quotepath    = false
 
 [alias]
 br    = branch
+brd   = !git branch --merged | egrep -v 'develop|main' | xargs git branch -d
 ci    = commit
 co    = checkout
 st    = status
 clone = clone --recursive
 cof   = !git branch    | fzf | xargs git checkout
 cofa  = !git branch -a | fzf | xargs git checkout
+prl   = !git log --first-parent --merges --reverse --pretty='%an %s %b' origin/main..origin/develop | sort
 
 [delta]
 plus-color   = "#012800"
