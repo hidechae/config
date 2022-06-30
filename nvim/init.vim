@@ -19,26 +19,31 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
+Plug 'bronson/vim-trailing-whitespace'
 
 " style
 "Plug 'bronson/vim-trailing-whitespace'
 Plug 'flazz/vim-colorschemes'
 Plug 'skanehira/preview-markdown.vim'
 
-" specific
+" go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/vim-goimports'
+
+" kotlin
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
-colorscheme wombat256
-
+"colorscheme wombat256
+"colorscheme badwolf
+colorscheme gruvbox
 
 " goimports
 " Plugin doesn't work, so set BufWritePre event manually
 autocmd BufWritePre *.go call goimports#AutoRun()
 
 " Fix trailing space on save
-"autocmd BufWritePre <buffer> FixWhitespace
+" autocmd BufWritePre <buffer> FixWhitespace
 
 
 " fzf
@@ -65,3 +70,12 @@ nnoremap <silent> md :PreviewMarkdown<CR>
 
 " no hilight
 map <silent> <ESC><ESC> :noh<CR>
+
+
+" 背景透過
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none
+highlight StatusLine ctermbg=none cterm=bold
