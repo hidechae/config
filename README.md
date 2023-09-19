@@ -27,6 +27,12 @@ fisher install edc/bass
 
 # GNU
 brew install coreutils
+
+# exa
+brew install exa
+
+# bat
+brew install bat
 ```
 
 ## Install vim-plug
