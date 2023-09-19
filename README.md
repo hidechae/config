@@ -33,6 +33,9 @@ brew install exa
 
 # bat
 brew install bat
+
+# tmux
+brew install tmux
 ```
 
 ## Install vim-plug
