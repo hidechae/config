@@ -29,7 +29,9 @@ st    = status
 clone = clone --recursive
 cof   = !git branch    | fzf | xargs git checkout
 cofa  = !git branch -a | fzf | xargs git checkout
-prl   = !git log --first-parent --merges --reverse --pretty='%an %s %b' origin/main..origin/develop | sort
+prls  = !"git log --first-parent --merges --reverse --pretty='%an::%s::%b' origin/main..origin/develop | sed -r 's/Merge pull request #([0-9]+) from [^::]+/https:\\/\\/github.com\\/v-standard\\/staffstart-api\\/pull\\/\\1/' | sort | awk -F '::' '{ while(1) { if ($1 != author) { print $1; author = $1 }; print \"[ ]\",$2,$3; if (getline <= 0) { exit } } }'"
+tree  = !"git log --graph --all --format=\"%x09%an%x09%h %d %s\""
+ai    = !$HOME/.nodenv/shims/aicommits
 
 [delta]
 plus-color   = "#012800"
@@ -49,3 +51,5 @@ hunk-header-decoration-style = omit
 
 [interactive]
 diffFilter = delta --color-only
+[init]
+	defaultBranch = main
