@@ -36,6 +36,9 @@ brew install bat
 
 # tmux
 brew install tmux
+
+# ripgrep
+brew install ripgrep
 ```
 
 ## Install vim-plug
