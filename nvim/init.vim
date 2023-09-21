@@ -8,6 +8,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" cursor
+set guicursor=n-v-c-i:block
+set mouse=
+
 " file types
 autocmd BufRead,BufNewFile *.fish set filetype=sh
 
@@ -49,7 +53,7 @@ autocmd BufWritePre *.go call goimports#AutoRun()
 " fzf
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   '/usr/local/bin/rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
 nnoremap <silent> ff  :Files<CR>
