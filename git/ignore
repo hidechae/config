@@ -2,5 +2,6 @@
 .vscode
 .DS_Store
 .env
+.envrc
 
 ignore_test.go
