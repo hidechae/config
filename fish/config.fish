@@ -1,7 +1,8 @@
 # env
 export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
-export PATH="$PATH:$GOPATH/bin:$HOME/bin"
+export PYTHONPATH=$HOME/Library/Python/3.9
+export PATH="$PATH:$GOPATH/bin:$HOME/bin:$PYTHONPATH/bin"
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -15,7 +16,7 @@ alias ls    'eza'
 alias l     'eza -hla --git'
 alias tree  'eza -T --git-ignore'
 alias cat   'bat'
-alias tmux  'TERM=xterm-256color /usr/local/bin/tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias tmux  'TERM=xterm-256color /opt/homebrew/bin/tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias mysql 'mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
 alias rm    'rm -i'
 alias cp    'cp -i'
@@ -29,7 +30,7 @@ alias vsdb     'mysql -uroot -h127.0.0.1 -P13306 oxford'
 alias vsdbmall 'mysql -uroot -h127.0.0.1 -P23306 oxford'
 
 # GNU
-alias date '/usr/local/bin/gdate'
+alias date '/opt/homebrew/bin//gdate'
 
 # history with fzf
 function fish_user_key_bindings
@@ -55,7 +56,7 @@ end
 # ripgrep
 alias ag rg
 function rg
-  /usr/local/bin/rg -p "$argv" | less -R
+  /opt/homebrew/bin/rg -p "$argv" | less -R
 end
 
 # show 255 colors
