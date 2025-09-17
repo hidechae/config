@@ -22,13 +22,10 @@ alias rm    'rm -i'
 alias cp    'cp -i'
 alias mv    'mv -i'
 
-# specific settings
-alias jvsr     'cd ~/Project/vanish'
-alias vsdb     'mysql -uroot -h127.0.0.1 -P13306 oxford'
-alias vsdbmall 'mysql -uroot -h127.0.0.1 -P23306 oxford'
-
 # GNU
 alias date '/opt/homebrew/bin//gdate'
+
+alias gmv 'cd $(ghq root)/$(ghq list | fzf)'
 
 # history with fzf
 function fish_user_key_bindings
@@ -98,3 +95,11 @@ end
 # direnv
 set -x EDITOR vim
 direnv hook fish | source
+
+# Added by Windsurf
+fish_add_path /Users/hideyukiutsunomiya/.codeium/windsurf/bin
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/hideyukiutsunomiya/.lmstudio/bin
+# End of LM Studio CLI section
+

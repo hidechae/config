@@ -39,6 +39,9 @@ brew install tmux
 
 # ripgrep
 brew install ripgrep
+
+# ghq
+brew install ghq
 ```
 
 ## Install vim-plug
