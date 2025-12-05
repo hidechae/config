@@ -2,13 +2,18 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export GOPATH=$HOME/go
 export PYTHONPATH=$HOME/Library/Python/3.9
-export PATH="$PATH:$GOPATH/bin:$HOME/bin:$PYTHONPATH/bin"
+export PATH="$PATH:$GOPATH/bin:$HOME/bin:$PYTHONPATH/bin:$HOME/.local/bin"
+export NVM_DIR="$HOME/.config/nvm"
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # nodenv
+status --is-interactive; and eval (/opt/homebrew/bin/brew shellenv)
 status --is-interactive; and source (nodenv init -|psub)
+
+# rust
+# source "$HOME/.cargo/env.fish
 
 # override cmd
 alias vim   'nvim -O' # holizontal split (-o vertical, -p tab)
@@ -21,11 +26,20 @@ alias mysql 'mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
 alias rm    'rm -i'
 alias cp    'cp -i'
 alias mv    'mv -i'
+alias sl    'ls'
+
+# specific settings
+alias jvsr     'cd ~/Project/vanish'
+alias vsdb     'mysql -uroot -h127.0.0.1 -P13306 oxford'
+alias vsdbtest 'mysql -uroot -h127.0.0.1 -P13307 oxford_test'
+alias vsdbmall 'mysql -uroot -h127.0.0.1 -P23306 oxford'
+alias fdb      'mysql -h 127.0.0.1 -uroot fortnite_scrim_tracker'
+alias fdbp     'mysql -uapqtvhluolmw88d6 -hqvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -pub5yho1ahaph9v85 ohlkzp2fpmas1prc'
 
 # GNU
 alias date '/opt/homebrew/bin//gdate'
 
-alias gmv 'cd $(ghq root)/$(ghq list | fzf)'
+alias jg 'cd $(ghq root)/$(ghq list | fzf)'
 
 # history with fzf
 function fish_user_key_bindings
@@ -65,41 +79,23 @@ function color
   end
 end
 
-# nvm
-# https://github.com/nvm-sh/nvm#fish)
-# customise to use nvm installed by brew.
-# only using nvm_find_nvmrc from nvm.sh
-#function nvm_find_nvmrc
-#  bass source /usr/local/opt/nvm/nvm.sh --no-use ';' nvm_find_nvmrc
-#end
-#
-#function load_nvm --on-variable="PWD"
-#  set -l nvmrc_path (nvm_find_nvmrc)
-#
-#  if test -n "$nvmrc_path"
-#    set -l node_version (nvm current | sed -e 's/v//g')
-#    set -l nvmrc_node_version (cat $nvmrc_path | sed -e 's/v//g')
-#
-#    if test $nvmrc_node_version != $node_version
-#      if test (nvm use  $nvmrc_node_version)
-#        nvm use $nvmrc_node_version
-#      else
-#        nvm install $nvmrc_node_version
-#      end
-#    end
-#  end
-#end
-#
-#load_nvm
-
 # direnv
 set -x EDITOR vim
 direnv hook fish | source
-
-# Added by Windsurf
-fish_add_path /Users/hideyukiutsunomiya/.codeium/windsurf/bin
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/hideyukiutsunomiya/.lmstudio/bin
 # End of LM Studio CLI section
 
+# pnpm
+set -gx PNPM_HOME "/Users/hideyukiutsunomiya/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Added by Windsurf
+fish_add_path /Users/hideyukiutsunomiya/.codeium/windsurf/bin
+
+# Added by Antigravity
+fish_add_path /Users/hideyukiutsunomiya/.antigravity/antigravity/bin

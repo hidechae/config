@@ -5,3 +5,5 @@
 .envrc
 
 ignore_test.go
+
+**/.claude/settings.local.json
