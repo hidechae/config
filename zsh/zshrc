@@ -6,6 +6,16 @@
 # zmodload zsh/zprof
 
 # ----------------------------------------------------------------------------
+# Environment Variables (set early for tool detection)
+# ----------------------------------------------------------------------------
+export XDG_CONFIG_HOME=$HOME/.config
+export GOPATH=$HOME/go
+export PYTHONPATH=$HOME/Library/Python/3.9
+export PATH="$PATH:$GOPATH/bin:$HOME/bin:$PYTHONPATH/bin:$HOME/.local/bin"
+export NVM_DIR="$HOME/.config/nvm"
+export EDITOR=vim
+
+# ----------------------------------------------------------------------------
 # Auto-install required tools
 # ----------------------------------------------------------------------------
 # Install sheldon if not present
@@ -49,16 +59,6 @@ setopt auto_menu # Show menu on second Tab press
 # ----------------------------------------------------------------------------
 # Enable emacs key bindings (Ctrl+A, Ctrl+E, Ctrl+K, etc.)
 bindkey -e
-
-# ----------------------------------------------------------------------------
-# Environment Variables
-# ----------------------------------------------------------------------------
-export XDG_CONFIG_HOME=$HOME/.config
-export GOPATH=$HOME/go
-export PYTHONPATH=$HOME/Library/Python/3.9
-export PATH="$PATH:$GOPATH/bin:$HOME/bin:$PYTHONPATH/bin:$HOME/.local/bin"
-export NVM_DIR="$HOME/.config/nvm"
-export EDITOR=vim
 
 # ----------------------------------------------------------------------------
 # Homebrew
