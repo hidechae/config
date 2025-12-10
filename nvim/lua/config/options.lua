@@ -6,6 +6,7 @@ local opt = vim.opt
 
 -- Display
 opt.number = true -- Show line numbers
+opt.relativenumber = false -- Disable relative line numbers
 opt.scrolloff = 5 -- Keep 5 lines visible when scrolling
 
 -- Tab settings
