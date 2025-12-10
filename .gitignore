@@ -1,4 +1,6 @@
 fish/conf.d/local.fish
+fish/fish_variables
+karabiner/automatic_backups/
 
 claude
 dlv
@@ -8,3 +10,4 @@ iterm2
 raycast
 swiftpm
 wireshark
+gcloud

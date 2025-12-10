@@ -44,14 +44,60 @@ brew install ripgrep
 brew install ghq
 ```
 
-## Install vim-plug
-see [vim-plug](https://github.com/junegunn/vim-plug)
+## Neovim Setup (LazyVim)
+This configuration uses [LazyVim](https://www.lazyvim.org/), a modern Neovim distribution.
+
+### Features
+- **Plugin Manager**: lazy.nvim (fast and modern)
+- **LSP Support**: Go (gopls), Kotlin (kotlin-language-server)
+- **Formatter**: goimports, gofumpt for Go
+- **Fuzzy Finder**: Telescope (replaces fzf)
+- **File Explorer**: neo-tree (replaces NERDTree)
+- **Colorscheme**: Gruvbox with transparent background
+- **Treesitter**: Advanced syntax highlighting
+
+### First Launch
+When you first open Neovim, LazyVim will automatically:
+1. Install lazy.nvim plugin manager
+2. Download and install all configured plugins
+3. Install language servers (gopls, kotlin-language-server) via Mason
+
+This may take a few minutes on first launch.
+
+### Key Bindings
 ```
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# File Operations
+ff          - Find files (Telescope)
+fm          - Recent files
+fc          - Change colorscheme
+<C-g>       - Live grep (search in files)
+fgs         - Git status
+
+# File Explorer
+<leader>e   - Toggle neo-tree
+
+# LSP
+gd          - Go to definition
+gr          - Find references
+K           - Show documentation
+<leader>ca  - Code actions
+<leader>rn  - Rename symbol
+
+# Other
+<Esc><Esc>  - Clear search highlight
 ```
 
+### Backup
+Old configuration is backed up at `~/.config/nvim.backup`
+
 # Other settings
+## zsh
+Load zsh config from .config directory
+```
+# Add this line to ~/.zshrc
+source ~/.config/zsh/zshrc
+```
+
 ## fish shell
 Change default shell to fish shell
 ```

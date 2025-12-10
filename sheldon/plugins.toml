@@ -1,0 +1,23 @@
+# Sheldon Plugin Configuration
+# https://sheldon.cli.rs/
+
+shell = "zsh"
+
+[plugins]
+
+# zsh-completions - Additional completion definitions
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+# zsh-autosuggestions - Fish-like autosuggestions
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+
+# zsh-syntax-highlighting - Fish shell-like syntax highlighting
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+# compinit - Initialize completion system
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'

@@ -1,0 +1,139 @@
+# ============================================================================
+# Zsh Configuration (migrated from fish)
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Plugin Manager (sheldon)
+# ----------------------------------------------------------------------------
+eval "$(sheldon source)"
+
+# ----------------------------------------------------------------------------
+# Key Bindings
+# ----------------------------------------------------------------------------
+# Enable emacs key bindings (Ctrl+A, Ctrl+E, Ctrl+K, etc.)
+bindkey -e
+
+# ----------------------------------------------------------------------------
+# Environment Variables
+# ----------------------------------------------------------------------------
+export XDG_CONFIG_HOME=$HOME/.config
+export GOPATH=$HOME/go
+export PYTHONPATH=$HOME/Library/Python/3.9
+export PATH="$PATH:$GOPATH/bin:$HOME/bin:$PYTHONPATH/bin:$HOME/.local/bin"
+export NVM_DIR="$HOME/.config/nvm"
+export EDITOR=vim
+
+# ----------------------------------------------------------------------------
+# Homebrew
+# ----------------------------------------------------------------------------
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# ----------------------------------------------------------------------------
+# Command Overrides
+# ----------------------------------------------------------------------------
+alias vim='nvim -O' # holizontal split (-o vertical, -p tab)
+alias ls='eza'
+alias l='eza -hla --git'
+alias tree='eza -T --git-ignore'
+alias cat='bat'
+alias tmux='TERM=xterm-256color /opt/homebrew/bin/tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias mysql='mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias sl='ls'
+
+# ----------------------------------------------------------------------------
+# Project Specific Aliases
+# ----------------------------------------------------------------------------
+alias jvsr='cd ~/Project/vanish'
+alias vsdb='mysql -uroot -h127.0.0.1 -P13306 oxford'
+alias vsdbtest='mysql -uroot -h127.0.0.1 -P13307 oxford_test'
+alias vsdbmall='mysql -uroot -h127.0.0.1 -P23306 oxford'
+alias fdb='mysql -h 127.0.0.1 -uroot fortnite_scrim_tracker'
+alias fdbp='mysql -uapqtvhluolmw88d6 -hqvti2nukhfiig51b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -pub5yho1ahaph9v85 ohlkzp2fpmas1prc'
+
+# ----------------------------------------------------------------------------
+# GNU Tools
+# ----------------------------------------------------------------------------
+alias date='/opt/homebrew/bin//gdate'
+
+# ----------------------------------------------------------------------------
+# ghq + fzf
+# ----------------------------------------------------------------------------
+alias jg='cd $(ghq root)/$(ghq list | fzf)'
+
+# ----------------------------------------------------------------------------
+# History with fzf
+# ----------------------------------------------------------------------------
+__fzf_history() {
+  local selected
+  selected=$(history -n 1 | fzf-tmux -d40% +s +m --tiebreak=index --query="$LBUFFER" | sed 's/^[0-9* ]*//')
+  if [ -n "$selected" ]; then
+    LBUFFER="$selected"
+    zle redisplay
+  fi
+}
+zle -N __fzf_history
+bindkey '^R' __fzf_history
+
+# ----------------------------------------------------------------------------
+# Git Helper Functions
+# ----------------------------------------------------------------------------
+gpull() {
+  git fetch origin --prune
+  git pull --rebase origin $(git symbolic-ref --short HEAD)
+}
+
+gpush() {
+  git push origin $(git symbolic-ref --short HEAD)
+}
+
+# ----------------------------------------------------------------------------
+# ripgrep
+# ----------------------------------------------------------------------------
+alias ag='rg'
+rg() {
+  /opt/homebrew/bin/rg -p "$@" | less -R
+}
+
+# ----------------------------------------------------------------------------
+# Color Display Function
+# ----------------------------------------------------------------------------
+color() {
+  for i in {1..255}; do
+    if (( i % 16 == 15 )); then
+      printf "\x1b[38;5;%03dm%03d\n" $i $i
+    else
+      printf "\x1b[38;5;%03dm%03d  " $i $i
+    fi
+  done
+}
+
+# ----------------------------------------------------------------------------
+# LM Studio
+# ----------------------------------------------------------------------------
+export PATH="$PATH:/Users/hideyukiutsunomiya/.lmstudio/bin"
+
+# ----------------------------------------------------------------------------
+# pnpm
+# ----------------------------------------------------------------------------
+export PNPM_HOME="/Users/hideyukiutsunomiya/Library/pnpm"
+if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
+  export PATH="$PNPM_HOME:$PATH"
+fi
+
+# ----------------------------------------------------------------------------
+# Windsurf
+# ----------------------------------------------------------------------------
+export PATH="/Users/hideyukiutsunomiya/.codeium/windsurf/bin:$PATH"
+
+# ----------------------------------------------------------------------------
+# Antigravity
+# ----------------------------------------------------------------------------
+export PATH="/Users/hideyukiutsunomiya/.antigravity/antigravity/bin:$PATH"
+
+# ----------------------------------------------------------------------------
+# Prompt (starship)
+# ----------------------------------------------------------------------------
+eval "$(starship init zsh)"
