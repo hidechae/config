@@ -1,0 +1,41 @@
+# Starship Configuration
+
+# Disable GCloud module
+[gcloud]
+disabled = true
+
+# Disable username
+[username]
+disabled = true
+
+# Disable hostname
+[hostname]
+disabled = true
+
+# Disable version displays for all languages
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[ruby]
+disabled = true
+
+[php]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[package]
+disabled = true
