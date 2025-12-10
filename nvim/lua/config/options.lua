@@ -17,3 +17,7 @@ opt.expandtab = true -- Use spaces instead of tabs
 -- Cursor
 opt.guicursor = "n-v-c-i:block" -- Block cursor in all modes
 opt.mouse = "" -- Disable mouse
+
+-- Conceal - Disable text concealing
+opt.conceallevel = 0 -- Show all text, don't hide anything
+opt.concealcursor = "" -- Never conceal text even when cursor is on the line

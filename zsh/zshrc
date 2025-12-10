@@ -6,6 +6,21 @@
 # zmodload zsh/zprof
 
 # ----------------------------------------------------------------------------
+# Auto-install required tools
+# ----------------------------------------------------------------------------
+# Install sheldon if not present
+if ! command -v sheldon &> /dev/null; then
+  echo "sheldon not found. Installing..."
+  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+fi
+
+# Install starship if not present
+if ! command -v starship &> /dev/null; then
+  echo "starship not found. Installing..."
+  curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
+
+# ----------------------------------------------------------------------------
 # Plugin Manager (sheldon)
 # ----------------------------------------------------------------------------
 eval "$(sheldon source)"
