@@ -53,6 +53,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case insensitive
 setopt auto_menu # Show menu on second Tab press
+setopt auto_cd # Change directory by typing path
 
 # ----------------------------------------------------------------------------
 # Key Bindings
@@ -70,8 +71,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # ----------------------------------------------------------------------------
 alias vim='nvim -O' # holizontal split (-o vertical, -p tab)
 alias ls='eza'
-alias l='eza -hla --git'
-alias tree='eza -T --git-ignore'
+alias l='eza -hla'
+alias tree='eza -T'
 alias cat='bat'
 alias tmux='TERM=xterm-256color /opt/homebrew/bin/tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias mysql='mysql --defaults-file="$XDG_CONFIG_HOME"/mysql/my.cnf'
