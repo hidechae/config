@@ -51,9 +51,15 @@ fi
 # Completion menu settings
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case insensitive
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'l:|=* r:|=*' # Case insensitive + substring match
 setopt auto_menu # Show menu on second Tab press
 setopt auto_cd # Change directory by typing path
+
+# Terraform completion (if terraform is installed)
+if command -v terraform &> /dev/null; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C /opt/homebrew/bin/terraform terraform
+fi
 
 # ----------------------------------------------------------------------------
 # Key Bindings
