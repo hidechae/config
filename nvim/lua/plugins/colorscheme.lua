@@ -1,22 +1,23 @@
 return {
-  -- Catppuccin colorscheme
+  -- Tokyo Night colorscheme
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
-      transparent_background = false,
-      term_colors = true,
+      style = "night", -- storm, moon, night, day
+      transparent = true,
+      terminal_colors = true,
       styles = {
-        comments = { "italic" },
-        conditionals = { "italic" },
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
       },
     },
     config = function(_, opts)
-      require("catppuccin").setup(opts)
-      vim.cmd("colorscheme catppuccin")
+      require("tokyonight").setup(opts)
+      vim.cmd("colorscheme tokyonight")
 
       -- Transparent background
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -28,11 +29,11 @@ return {
     end,
   },
 
-  -- Configure LazyVim to use catppuccin
+  -- Configure LazyVim to use tokyonight
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "tokyonight",
     },
   },
 }
