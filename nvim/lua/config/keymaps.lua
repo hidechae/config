@@ -6,3 +6,7 @@ local map = vim.keymap.set
 
 -- Clear search highlight
 map("n", "<Esc><Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight", silent = true })
+
+-- Jump list navigation (g[ and g])
+map("n", "g[", "<C-o>", { desc = "Jump back", silent = true })
+map("n", "g]", "<C-i>", { desc = "Jump forward", silent = true })
