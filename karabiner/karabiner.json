@@ -35,7 +35,8 @@
                                         "bundle_identifiers": [
                                             "^com\\.googlecode\\.iterm2",
                                             "^-com\\.jetbrains\\.intellij",
-                                            "^-com\\.jetbrains\\.WebStorm"
+                                            "^-com\\.jetbrains\\.WebStorm",
+                                            "com.mitchellh.ghostty"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -53,7 +54,8 @@
                                         "bundle_identifiers": [
                                             "^com\\.googlecode\\.iterm2",
                                             "^-com\\.jetbrains\\.intellij",
-                                            "^-com\\.jetbrains\\.WebStorm"
+                                            "^-com\\.jetbrains\\.WebStorm",
+                                            "com.mitchellh.ghostty"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -71,7 +73,8 @@
                                         "bundle_identifiers": [
                                             "^com\\.googlecode\\.iterm2",
                                             "^-com\\.jetbrains\\.intellij",
-                                            "^-com\\.jetbrains\\.WebStorm"
+                                            "^-com\\.jetbrains\\.WebStorm",
+                                            "com.mitchellh.ghostty"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -89,7 +92,8 @@
                                         "bundle_identifiers": [
                                             "^com\\.googlecode\\.iterm2",
                                             "^-com\\.jetbrains\\.intellij",
-                                            "^-com\\.jetbrains\\.WebStorm"
+                                            "^-com\\.jetbrains\\.WebStorm",
+                                            "com.mitchellh.ghostty"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -107,7 +111,9 @@
                                         "bundle_identifiers": [
                                             "^com\\.googlecode\\.iterm2",
                                             "^-com\\.jetbrains\\.intellij",
-                                            "^-com\\.jetbrains\\.WebStorm"
+                                            "^-com\\.jetbrains\\.WebStorm",
+                                            "com.mitchellh.ghostty",
+                                            "com.mitchellh.ghostty"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -246,9 +252,7 @@
                             {
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": ["command"]
-                                    }
+                                    "modifiers": { "mandatory": ["command"] }
                                 },
                                 "to": [],
                                 "type": "basic"
