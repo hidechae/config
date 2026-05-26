@@ -133,6 +133,13 @@ gpush() {
   git push origin $(git symbolic-ref --short HEAD)
 }
 
+# git worktree を fzf で選択して移動
+cdwt() {
+  local dir
+  dir=$(git worktree list | fzf --height 40% --reverse | awk '{print $1}')
+  [ -n "$dir" ] && cd "$dir"
+}
+
 # ----------------------------------------------------------------------------
 # ripgrep
 # ----------------------------------------------------------------------------
